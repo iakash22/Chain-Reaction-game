@@ -1,5 +1,6 @@
 #include <iostream>
-#include <windows.h>
+// #include <windows.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 char a[10][10][3];
@@ -7,7 +8,7 @@ int extra;
 char p1,p2;
 
 void board();
-char put(int, int , char );
+void put(int, int , char );
 int checkwin(char );
 void multiply(char,int,int );
 
@@ -42,7 +43,7 @@ int main()
             board();
             while (true)
             {
-                cout <<"\n\nChoose a spot: ";
+                cout <<"\n\nChoose a spot x and y: ";
                 cin>> r>> c;
                 if(a[r][c][0]!=p2)
                     break;
@@ -77,7 +78,7 @@ int main()
                     break;}
             }
 
-          i++;
+        i++;
     }
     while(counter!=1);
     board();
@@ -101,10 +102,10 @@ void board()
         }
         cout<<"|| "<< i<<"\n"<<endl;
     }
-     cout << "       0       1       2       3       4       5       6       7       8       9";
+    cout << "       0       1       2       3       4       5       6       7       8       9";
 }
 
-char put(int r, int c, char player)
+void put(int r, int c, char player)
 {
     char opp;
     (player==p1 )? opp=p2 : opp=p1;
@@ -118,7 +119,7 @@ char put(int r, int c, char player)
         else if(a[r][c][0]==' ')
             a[r][c][0]=player;
         else if (a[r][c][0]==player)
-             multiply(player,r,c);
+            multiply(player,r,c);
     }
     else if ((r==0 && (c>0 && c<9)) || (r==9 && (c>0 && c<9)) || (c==0 && (r>0 && r<9)) || (c==9 && (r>0 && r<9)))
         {
@@ -151,7 +152,7 @@ char put(int r, int c, char player)
                 a[r][c][0]=player;
                 a[r][c][1]=player;
             }
-             else if(a[r][c][1]==opp && a[r][c][2]==' ')
+            else if(a[r][c][1]==opp && a[r][c][2]==' ')
             {
                 a[r][c][0]=player;
                 a[r][c][1]=player;
